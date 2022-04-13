@@ -10,6 +10,8 @@
 1. Clone the repo: `git clone https://github.com/cha0yunghuang/InstaGrabber.git`
 
 2. Use pip to install the selenium package like this: `pip3 install selenium`
+
+3. Install wget: `brew install wget`
   
 3. Get ChromeDriver at http://chromedriver.chromium.org/
 
