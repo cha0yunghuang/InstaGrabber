@@ -14,7 +14,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# for authenticate the ssl certificate issue
+# To authenticate the SSL certificate issue
 def main():
     ssl._create_default_https_context = ssl._create_unverified_context
     r = urllib.request.urlopen('https://google.com')
@@ -24,13 +24,12 @@ if __name__ == '__main__':
     main()
 
 
-# chromedriver path
 driver = webdriver.Chrome(config.chromeDriver)
 
 driver.get('https://www.instagram.com')
 
 
-# Explicit-Wait for username and password textfield
+# Explicit-Wait, for username and password text field
 username = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.NAME, "username"))
 )
@@ -49,14 +48,14 @@ login = driver.find_element_by_xpath('//*[@id="loginForm"]/div/div[3]')
 login.click()
 
 
-# Explicit-Wait for the searchbar appear
+# Explicit-Wait, for the searchbar to appear
 search = WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.XPATH, '//*[@id="react-root"]/section/nav/div[2]/div/div/div[2]/input'))
 )
 
 
-# keyword -> enter 2 times
-keyword = '#meme'
+# Fill in the keyword, then click Enter 2 times
+keyword = config.searchKeyword
 search.send_keys(keyword)
 time.sleep(1)
 search.send_keys(Keys.RETURN)
@@ -64,22 +63,32 @@ time.sleep(1)
 search.send_keys(Keys.RETURN)
 
 
-# Explicit-Wait for the imageTiles appear
+# Explicit-Wait, for the image tiles appear
 WebDriverWait(driver, 10).until(
     EC.presence_of_element_located((By.XPATH, '//*[@id="react-root"]/section/main/article/div[1]'))
 )
 
-# create a folder
+# Create a folder
 path = os.path.join(keyword)
 os.mkdir(path)
+
 
 imgs = driver.find_elements_by_class_name('FFVAD')
 
 count = 0
-for img in imgs:
-    save_as = os.path.join(path, keyword + '_' + str(count) + '.jpg')
-    #print(img.get_attribute('src'))
-    wget.download(img.get_attribute('src'), save_as)
-    count += 1
 
+# After images are downloaded, scroll, then execute download again.
+for i in range(3):
+
+    for img in imgs:
+        save_as = os.path.join(path, keyword + '_' + str(count) + '.jpg')
+        #print(img.get_attribute('src'))
+        wget.download(img.get_attribute('src'), save_as)
+        count += 1
+
+    driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
+    time.sleep(5)
+
+
+time.sleep(4)
 driver.close()
