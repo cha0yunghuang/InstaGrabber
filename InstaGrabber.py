@@ -1,3 +1,4 @@
+import config
 import urllib.request
 import ssl
 
@@ -24,7 +25,7 @@ if __name__ == '__main__':
 
 
 # chromedriver path
-driver = webdriver.Chrome('/Users/erichuang/Dev/chromedriver')
+driver = webdriver.Chrome(config.chromeDriver)
 
 driver.get('https://www.instagram.com')
 
@@ -41,8 +42,8 @@ password = WebDriverWait(driver, 10).until(
 username.clear()
 password.clear()
 
-username.send_keys('YOUR_USERNAME')
-password.send_keys('YOUR_PASSWORD')
+username.send_keys(config.username)
+password.send_keys(config.password)
 
 login = driver.find_element_by_xpath('//*[@id="loginForm"]/div/div[3]')
 login.click()
