@@ -13,8 +13,11 @@
 
 3. Install wget: `brew install wget`
   
-3. Get ChromeDriver at http://chromedriver.chromium.org/
+4. Get ChromeDriver at http://chromedriver.chromium.org/
 
-4. Modify the username/password of the Instagram, keyword, and the path of ChromeDriver in `config.py`
+5. Modify the data in `config.py`
+  * Username / Password
+  * Keyword
+  * ChromeDriver Path
 
-5. Run the Python script
+6. Run the Python script
