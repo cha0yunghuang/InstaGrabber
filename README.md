@@ -11,7 +11,7 @@
 
 2. Use pip to install the selenium package like this: `pip3 install selenium`
 
-3. Install wget: `brew install wget`
+3. Install wget: `pip3 install wget`
   
 4. Get ChromeDriver at http://chromedriver.chromium.org/
 
