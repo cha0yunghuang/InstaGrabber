@@ -23,4 +23,4 @@ password = 'YOUR_IG_PASSWORD'
 chromeDriver = 'CHROMEDRIVER_PATH'
 searchKeyword = '#KEYWORD'
 ```
-7. Run the Python script
+7. Run the Python script `InstaGrabber.py`
