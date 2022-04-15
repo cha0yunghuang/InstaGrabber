@@ -13,11 +13,11 @@
 
 3. Install wget: `pip3 install wget`
   
-4. Get ChromeDriver at http://chromedriver.chromium.org/
+4. Get ChromeDriver at http://chromedriver.chromium.org/ and unzip it
 
 5. Create a Python file in the folder: `config.py`
 
-6. Fill in the data into `config.py`
+6. Fill in your personal data into `config.py` like this:
 
 ```python
 username = 'YOUR_IG_USERNAME'
