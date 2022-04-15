@@ -15,9 +15,14 @@
   
 4. Get ChromeDriver at http://chromedriver.chromium.org/
 
-5. Modify the data in `config.py`
-  * Username / Password
-  * Keyword
-  * ChromeDriver Path
+5. Create a Python file in the folder: `config.py`
 
-6. Run the Python script
+6. Fill in the data into `config.py`
+
+```python
+username = 'YOUR_IG_USERNAME'
+password = 'YOUR_IG_PASSWORD'
+chromeDriver = 'CHROMEDRIVER_PATH'
+searchKeyword = '#KEYWORD'
+```
+7. Run the Python script
