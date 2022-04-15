@@ -15,9 +15,7 @@
   
 4. Get ChromeDriver at http://chromedriver.chromium.org/ and unzip it
 
-5. Create a Python file in the folder: `config.py`
-
-6. Fill in your personal data into `config.py` like this:
+5. Create a Python file `config.py`, then fill in your personal data like this:
 
 ```python
 username = 'YOUR_IG_USERNAME'
